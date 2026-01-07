@@ -36,6 +36,21 @@ In other words, I’m learning to **bridge explanation and prediction**—bringi
 - **Interpretable results** with an emphasis on economic meaning, not just accuracy  
 
 ---
+## Global Purchasing Power Parity Analysis (Big Mac Index)
+
+### Objective  
+Evaluate the **Law of One Price** by using Big Mac prices across countries to infer **Purchasing Power Parity (PPP)** exchange rates and assess whether currencies appear **overvalued or undervalued** relative to the U.S. dollar.
+
+### Methodology  
+- **Assembled the dataset** from *The Economist*’s **2015 Big Mac Index** figures, manually structuring country-level observations into a clean, analysis-ready table.  
+- **Computed Implied PPP exchange rates** by comparing local Big Mac prices to the U.S. price benchmark (i.e., the exchange rate that would equalize Big Mac prices across countries).  
+- **Measured currency misalignment** by calculating the percentage difference between the implied PPP rate and the prevailing market exchange rate, interpreting results as **overvaluation** (currency stronger than PPP) or **undervaluation** (currency weaker than PPP).  
+
+### Key Findings  
+- The results indicate meaningful **departures from PPP**, consistent with the idea that identical goods can trade at different effective prices across countries due to frictions such as taxes, trade costs, wages, and market segmentation.  
+- **[Insert your finding]**: For example, I found that the **Norwegian Krone was overvalued by X%** against the U.S. dollar, implying that—relative to the PPP benchmark—the Krone’s market value made Norway’s Big Mac price appear high in USD terms.  
+- These misalignments suggest that **arbitrage is limited** in practice: even when price gaps imply potential profit opportunities, real-world constraints prevent the rapid equalization of prices that the Law of One Price would predict.  
+
 
 ## Contact
 
