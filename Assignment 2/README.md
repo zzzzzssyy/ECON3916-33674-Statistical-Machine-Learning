@@ -1,38 +1,82 @@
-Assignment 2: The Algorithmic Audit
-Overview：
+📊 Assignment 2: The Algorithmic Audit
 
-This audit examines three recurring forms of statistical distortion: Latency Skew, False Positives, and Survivorship Bias.
+This audit examines how seemingly “strong” metrics can systematically mislead decision-makers when robustness, base rates, or missing data are ignored.
 
-Rather than being calculation errors, these issues arise from structural weaknesses in data collection, sampling, and inference. Each distortion creates the illusion of improved performance, stronger effects, or higher success rates by systematically omitting part of the underlying data-generating process.
+The analysis is structured around three statistical failure mechanisms.
 
-The objective of this audit is to identify how these distortions occur and outline disciplined methods for preventing them.
+🧱 1. Latency Skew & Fragile Metrics
 
-Key Findings：
+Problem: Aggregate latency metrics were distorted by a small number of extreme delays.
 
-Latency Skew artificially inflates or deflates performance
-When outcome data are observed over unequal time windows, partially matured cohorts are compared against fully matured ones. This creates misleading trend improvements.
+Method:
+Compared Standard Deviation (SD) with Median Absolute Deviation (MAD) under simulated heavy-tail conditions.
 
-False Positives convert randomness into “signal”
-When multiple hypotheses are tested without correction, statistical noise is mislabeled as meaningful effect. Significance alone is not proof of impact.
+Finding:
 
-Survivorship Bias overstates success rates
-By excluding failed or dropped cases, datasets exaggerate effectiveness and hide risk exposure.
+SD increased dramatically after introducing a small cluster of extreme outliers
 
-All three distortions stem from incomplete denominators
-The common structural flaw is missing observations — whether across time, hypothesis space, or population.
+MAD remained stable and better reflected typical system behavior
 
-Conclusion：
+Insight:
+Metrics based on squared deviations are fragile under skew.
+Robust statistics are essential in heavy-tailed environments.
 
-Statistical lies rarely involve fabricated data. Instead, they arise from structural blind spots in sampling and inference design.
+🎯 2. False Positives & Base Rate Neglect
 
-Latency Skew distorts time.
+Problem: A classifier advertised “98% accuracy” without accounting for prevalence.
 
-False Positives distort inference.
+Method:
+Conducted a Bayesian posterior audit:
 
-Survivorship Bias distorts population visibility.
+𝑃
+(
+True Event
+∣
+Flagged
+)
+P(True Event∣Flagged)
 
-The unifying lesson is simple:
+across varying base rates.
 
-If the denominator is unstable, the conclusion is unreliable.
+Finding:
 
-Strong analytics requires structural discipline — not just statistical computation.
+In low-incidence environments, the majority of flagged cases were false positives
+
+High sensitivity and specificity did not translate into reliable decision quality
+
+Insight:
+Accuracy without base rate context is statistically misleading.
+Ignoring prevalence converts strong-looking metrics into institutional risk.
+
+🧬 3. Survivorship Bias & Missing Failures
+
+Problem: Performance was reported using only surviving entities.
+
+Method:
+Simulated full population outcomes using a heavy-tailed (Pareto) distribution and compared:
+
+Full population mean
+
+Survivor-only mean
+
+Finding:
+
+Survivor-only averages were orders of magnitude higher
+
+Excluding failures created a false narrative of consistent success
+
+Insight:
+Deleting failures is equivalent to altering the data-generating process.
+
+✅ Key Takeaway
+
+Statistical distortions rarely arise from incorrect arithmetic.
+They emerge from flawed structural assumptions.
+
+Latency skew hides temporal incompleteness
+
+False positives hide prevalence structure
+
+Survivorship bias hides population attrition
+
+Robust metrics, Bayesian reasoning, and full denominator visibility are not optional — they are foundational to analytical integrity.
