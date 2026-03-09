@@ -1,5 +1,3 @@
-明白了！你想要像那个 PSM 项目一样的完整portfolio card风格——有清晰的结构、指标对比、方法论步骤、商业洞察。让我来写：
-
 The Correlation Trap — Spurious Correlation & Multicollinearity in Macroeconomic Time-Series
 Causal Diagnostics · Stationarity Correction · Structural Identification
 Raw macroeconomic data doesn't just mislead — it fabricates relationships that don't exist. A correlation of 0.95 sounds like a discovery. In non-stationary time series, it's often just two lines trending upward together. This project builds a full diagnostic pipeline to expose that deception, correct it, and recover the true structural signal.
